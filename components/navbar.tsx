@@ -6,9 +6,9 @@ import {auth,signIn, signOut} from "@/auth"
 async function Navbar() {
     const session = await  auth()
   return (
-    <header className='px-10 py-3 overflow-x-hidden  text-white bg-black shadow-sm font-work-sans'>
+    <header className='px-10 py-3 overflow-x-hidden   bg-white shadow-sm font-work-sans'>
 <nav className="flex justify-between items-center">
-    <Link href="/">
+    <Link href="/" className=' rounded-l-full py-2 px-4 flex items-center'>
     <Image src="/logo.png" alt='logo' width={144} height={30}/>
     </Link>
     <div className="flex gap-5 items-center">
