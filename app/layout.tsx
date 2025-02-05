@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont  from  'next/font/local'
 import "./globals.css";
 
-const workSans = localFont({
+const WorkSans = localFont({
   src:[
 {
   path:'./fonts/WorkSans-Black.ttf',
@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={workSans.variable}
+        className={WorkSans.variable}
       >
         {children}
       </body>
