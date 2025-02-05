@@ -6,7 +6,7 @@ import React from 'react'
 import Button from './button'
 
 const StartupCard = ({ post }: { post: StartupTypeCard }) => {
-    const { _createdAt, _id, description, category, image, author: { _id: authorID, name, }, title, views } = post
+    const { _createdAt, _id, description, category, author: { _id: authorID, name, }, title, views } = post
     return (
         <li className='startup-card group'>
             <div className="flex-between">
