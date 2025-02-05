@@ -8,35 +8,14 @@ import StartupCard from "@/components/startupcard";
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ query: string }> }) {
   const query = (await searchParams).query
- 
-  const posts = [
-    {
-      _createdAt: new Date(),
-      views: 55,
-      author: {
-        _id: 1,
-        name: "James Maina"
-      },
-      _id: 1,
-      description: "This is a description",
-      image: "https://unsplash.com/photos/black-android-smartphone-vXInUOv1n84",
-      category: "robots",
-      title: 'We Robots'
-    },
-    {
-      _createdAt: new Date(),
-      views: 55,
-      author: {
-        _id: 2,
-        name: "James Maina"
-      },
-      _id: 2,
-      description: "This is a description",
-      image: "https://unsplash.com/photos/black-android-smartphone-vXInUOv1n84",
-      category: "robots",
-      title: 'We Robots'
-    }
-  ]
+  const response = await fetch('https://practical-interview-backend.vercel.app/api/v1/startup')
+  if (!response.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  const post = await response.json()
+  const posts = post.startUp
+
   return (
     <>
       <section className="pink_container">
