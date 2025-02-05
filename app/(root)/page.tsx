@@ -8,6 +8,7 @@ import StartupCard from "@/components/startupcard";
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ query: string }> }) {
   const query = (await searchParams).query
+ 
   const posts = [
     {
       _createdAt: new Date(),
@@ -54,7 +55,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
         </p>
         <ul className="mt-7 card_grid">
           {posts?.length > 0 ? (
-            posts.map((post: StartUpCardType) => (
+            posts.map((post: any) => (
               <StartupCard post={post} key={post?._id} />
             ))
           ) : <p className="no-results">No startups Found</p>}

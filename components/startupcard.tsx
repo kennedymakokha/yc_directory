@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { formatDate } from '@/lib/utils'
 import { EyeIcon } from 'lucide-react'
 import Image from 'next/image'
@@ -5,7 +6,7 @@ import Link from 'next/link'
 import React from 'react'
 import Button from './button'
 
-const StartupCard = ({ post }: { post: StartupTypeCard }) => {
+const StartupCard = ({ post }: { post: any }) => {
     const { _createdAt, _id, description, category, author: { _id: authorID, name, }, title, views } = post
     return (
         <li className='startup-card group'>
