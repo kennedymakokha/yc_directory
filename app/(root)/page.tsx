@@ -8,7 +8,9 @@ import StartupCard from "@/components/startupcard";
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ query: string }> }) {
   const query = (await searchParams).query
-  const response = await fetch('https://practical-interview-backend.vercel.app/api/v1/startup')
+
+  const response = await fetch(`http://localhost:8000/api/v1/startup?search=${query===undefined?null:query}`)
+
   if (!response.ok) {
     throw new Error('Failed to fetch data');
   }

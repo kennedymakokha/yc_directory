@@ -7,9 +7,10 @@ import React from 'react'
 import Button from './button'
 
 const StartupCard = ({ post }: { post: any }) => {
-    const { createdAt, _id,image,description, category, author,
+    const { createdAt, _id, image, description, category, author,
         // author: { _id: authorID, name, },
         title, views } = post
+    console.log(image)
     return (
         <li className='startup-card group'>
             <div className="flex-between">
@@ -40,7 +41,7 @@ const StartupCard = ({ post }: { post: any }) => {
                 <p className="startup-card_desc">
                     {description}
                 </p>
-                <Image src='/unsplash.jpg' alt="" width={500} height={208} className="startup-card_img" />
+                <Image src={`${image.includes('http://localhost:8000/uploads') ? "/unsplash.jpg" : { image }}`} alt="" width={500} height={208} className="startup-card_img" />
             </Link>
             <div className="flex-between gap-3 mt-5">
                 <Link href={`/?query=${category?.toLowerCase()}`}>
