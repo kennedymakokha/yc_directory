@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { auth } from "@/auth";
 import SearchForm from "@/components/searchForm";
 import StartupCard from "@/components/startupcard";
 
@@ -8,8 +9,9 @@ import StartupCard from "@/components/startupcard";
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ query: string }> }) {
   const query = (await searchParams).query
-
-  const response = await fetch(`http://localhost:8000/api/v1/startup?search=${query===undefined?null:query}`)
+  const session = await auth()
+  console.log(session)
+  const response = await fetch(`http://localhost:8000/api/v1/startup?search=${query === undefined ? null : query}`)
 
   if (!response.ok) {
     throw new Error('Failed to fetch data');

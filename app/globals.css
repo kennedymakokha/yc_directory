@@ -158,7 +158,7 @@
 
   /* startupform */
   .startup-form {
-    @apply max-w-2xl mx-auto bg-white my-10 space-y-8 px-6;
+    @apply max-w-4xl mx-auto bg-gray-100 my-10 space-y-8 px-6;
   }
 
   .startup-form_label {
@@ -166,11 +166,11 @@
   }
 
   .startup-form_input {
-    @apply border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-3 placeholder:text-black-300 !important;
+    @apply   border-[1px] border-slate-400 px-5 py-7 text-[18px] text-black font-semibold rounded-md mt-3 placeholder:text-black-300 !important;
   }
 
   .startup-form_textarea {
-    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-[20px] mt-3 placeholder:text-black-300 !important;
+    @apply  border-[1px] border-slate-400 p-5 text-[18px] text-black font-semibold rounded-md mt-3 placeholder:text-black-300 !important;
   }
 
   .startup-form_error {
@@ -178,11 +178,11 @@
   }
 
   .startup-form_editor {
-    @apply mt-3 border-[3px] border-black text-[18px] text-black font-semibold placeholder:text-black-300 !important;
+    @apply mt-3  border-[1px] border-slate-400 text-[18px] text-black font-semibold placeholder:text-black-300 !important;
   }
 
   .startup-form_btn {
-    @apply bg-primary border-[4px] border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] !important;
+    @apply bg-primary  border-slate-400 rounded-md p-5 min-h-[70px] w-full font-bold text-[18px] !important;
   }
 
   /* view */

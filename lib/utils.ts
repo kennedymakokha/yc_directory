@@ -4,10 +4,18 @@ import { twMerge } from "tailwind-merge"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
- export function formatDate(date:string){
-  return new Date(date).toLocaleDateString("en-Us",{
-    month:'long',
-    day:'numeric',
-    year:'numeric'
+export function formatDate(date: string) {
+  return new Date(date).toLocaleDateString("en-Us", {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
   })
- }
+}
+
+export function getAuth(date: string) {
+  return new Date(date).toLocaleDateString("en-Us", {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  })
+}
