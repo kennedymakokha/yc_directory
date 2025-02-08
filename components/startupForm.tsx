@@ -14,6 +14,7 @@ import { z } from 'zod';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import { getCookie } from 'cookies-next';
+import { createStartUp } from '@/app/actions/action';
 const StartupForm = () => {
 
     const [errors, setErrors] = useState<Record<string, string>>({})
@@ -31,7 +32,7 @@ const StartupForm = () => {
                 pitch
             }
             await formSchema.parseAsync(formValues);
-            // const result = await createIdea(prevState, formData, pitch)
+            const result = await createStartUp(prevState, formData, pitch)
             // console.log(formValues)
 
             // const newformData = new FormData();
@@ -41,19 +42,20 @@ const StartupForm = () => {
             // newformData.append("image",file)
             // newformData.append("pitch",pitch)
             // console.log(newformData)
-            const requestOptions = {
-                method: "POST", // Specify the request method
-                headers: { "Content-Type": "application/json" }, // Specify the content type
-                body: JSON.stringify(formValues) // Send the data in JSON format
-            };
-            const result = await fetch(`http://localhost:8000/api/v1/startup`, requestOptions)
-            const finalresult = await result.json()
-            if (finalresult?.message === "Success") {
+            // const requestOptions = {
+            //     method: "POST", // Specify the request method
+            //     headers: { "Content-Type": "application/json" }, // Specify the content type
+            //     body: JSON.stringify(formValues) // Send the data in JSON format
+            // };
+            // const result = await fetch(`http://localhost:8000/api/v1/startup`, requestOptions)
+            // const finalresult = await result.json()
+            console.log(result)
+            if (result?.status === "SUCCESS") {
                 toast({
                     title: "Success",
                     description: "Your statup is successfully added"
                 })
-                router.push(`/startup/${finalresult?.newstartUp?._id}`)
+                router.push(`/startup/${result?._id}`)
             }
             // return finalresult
         } catch (error) {
