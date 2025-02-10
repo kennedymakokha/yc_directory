@@ -36,7 +36,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
         {/* <img src="/unsplash.jpg"
           alt="thumbnail"
           className="w-full h-auto rounded-xl" /> */}
-        <ImageCarousel images={['/unsplash.jpg', '/logo.png']} />
+        <ImageCarousel images={['/unsplash.jpg']} />
         <div className="space-y-5 mt-5 max-w-4xl mx-auto">
           <div className="flex-between gap-5">
             <Link href={`/user/${detail?.author?._id}`} className='flex gap-2 items-center mb-3'>

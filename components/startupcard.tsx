@@ -5,17 +5,19 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Button from './button'
+import { Skeleton } from './ui/skeleton'
 
 const StartupCard = ({ post }: { post: any }) => {
-    const { createdAt, _id, image, description, category, author,
+
+    const { _id, image, description, category, author,
         // author: { _id: authorID, name, },
         title, views } = post
-    console.log(image)
+
     return (
         <li className='startup-card group'>
             <div className="flex-between">
                 <p className="startup_card_date">
-                    {formatDate(createdAt)}
+                    {formatDate(post?.createdAt)}
                 </p>
                 <div className="flex gap-1.5">
                     <EyeIcon className='size-6 text-primary' />
@@ -60,3 +62,17 @@ const StartupCard = ({ post }: { post: any }) => {
 }
 
 export default StartupCard
+
+
+export const SkeletoneStartupCard = () => {
+    return (
+        <>
+            {[1, 2, 3, 4, 5].map((index: number) => (
+                <li key={( index)}>
+                    <Skeleton className='startup-card_skeleton' />
+
+                </li>
+            ))}
+        </>
+    )
+}
